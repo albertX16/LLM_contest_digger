@@ -1,0 +1,113 @@
+meta:
+  purpose: "比赛规则和当前工作假设的机器可读参考"
+  canonical_project_document: "../README.md"
+  status: "reference_only"
+  note: "本文件不定义人员分工、开发阶段或验收标准；与官方最新规则冲突时以官方规则为准。"
+
+competition:
+  source_url: "https://bigquant.com/square/competition/76ad3f56-ec2b-431a-890e-139a7f4bbcba"
+  track: "ai_factor_mining"
+  track_name: "AI 智能赛道"
+  task_type: "factor_mining"
+
+data:
+  stock_pool: "CSI1000 historical constituents"
+  available_start_date: "2019-01-01"
+  available_end_date: "2024-12-31"
+  hidden_test_year: 2025
+  allowed_sources:
+    - "official_market_data"
+    - "official_orderbook_snapshot"
+    - "official_pit_financial_data"
+  external_data_allowed_for_factor_values: false
+  future_data_allowed: false
+
+submission:
+  output_columns:
+    - "date"
+    - "instrument"
+    - "factor"
+  one_factor_per_submission: true
+  max_factors_per_team: 50
+  notebook_must_include_official_main_function: true
+  internet_access_in_runtime: false
+  approximate_runtime_limit_hours: 3
+  exact_function_signature:
+    status: "to_be_verified"
+
+official_final_platform_processing:
+  source_status: "documented_in_current_rule_summary"
+  missing_value_handling: true
+  winsorization: true
+  median_adjustment: true
+  barra_neutralization: true
+  industry_neutralization: true
+  residualization: true
+
+research_evaluation_endpoint:
+  same_as_official_final_platform:
+    status: "unverified"
+  neutralization_behavior:
+    status: "unverified"
+  owner_for_verification: "person_4_with_person_3"
+
+constraints:
+  no_future_leakage:
+    value: true
+    status: "confirmed_principle"
+  no_external_factor_data:
+    value: true
+    status: "confirmed_principle"
+  reproducible_execution:
+    value: true
+    status: "confirmed_principle"
+  missing_rate_limit:
+    working_value: 0.40
+    status: "working_assumption_to_be_verified"
+
+evaluation:
+  official_score_formula: "0.3 * A + 0.7 * B"
+  component_a:
+    name: "weighted_rank_icir"
+  component_b:
+    name: "elastic_net_global_combination_contribution"
+  team_score_rule: "max_score_among_submitted_factors"
+  possible_internal_metrics:
+    status: "selection_and_weighting_to_be_decided"
+    items:
+      - "rank_ic"
+      - "rank_icir"
+      - "return"
+      - "max_drawdown"
+      - "regime_performance"
+      - "missing_rate"
+      - "factor_similarity"
+
+current_working_evaluation_periods:
+  quick:
+    description: "约三个月：极端上涨、极端下跌和约一个月普通区间"
+    exact_dates:
+      status: "to_be_configured"
+  full:
+    year: 2024
+  note: "人员三决定不同阶段的调用；人员二提供按区间计算因子值的能力。"
+
+ai_methods:
+  methods_mentioned_or_considered:
+    - "large_language_model"
+    - "genetic_algorithm"
+    - "reinforcement_learning"
+    - "automatic_feature_engineering"
+  project_choices:
+    paper_driven_generation: "undecided"
+    reinforcement_learning: "undecided"
+    llm_rule_selection_order: "undecided"
+    shared_or_separate_agent_memory: "undecided"
+    factor_similarity_method: "undecided"
+
+open_questions:
+  - "研发测试端口是否自动完成行业和 BARRA 风格剥离"
+  - "官方主函数的准确签名和最终提交适配方式"
+  - "缺失率限制的准确口径"
+  - "程序规则和大语言模型在筛选中的顺序与职责"
+  - "是否以及如何使用经济学和金融论文"

@@ -1,0 +1,7 @@
+# Install from BigQuant's official package index:
+# python -m pip install -r requirements.txt -i https://pypi.bigquant.com/simple/
+bigquant==0.1.11
+ipykernel==7.3.0
+nbformat==5.10.4
+nbclient==0.11.0
+
