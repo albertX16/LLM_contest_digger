@@ -10,10 +10,10 @@
     {
       "factor_id": "d4531be5a8960e80",
       "display_name": "R1 low trade bid value vs ask orders D453",
-      "reported_score": 0.78165,
+      "reported_score": 0.68012,
       "precision": "exact",
       "tier": "leader",
-      "ordinal_rank": 2,
+      "ordinal_rank": 4,
       "observed_at": "2026-08-03",
       "score_scope": "dynamic_leaderboard_snapshot",
       "reported_rank_impact": "组合排名约从50名提升到20名",
@@ -22,116 +22,124 @@
         0.88,
         0.86523,
         0.68,
-        0.68208
+        0.68208,
+        0.78165
       ],
-      "platform_conclusion": "2026-08-03 公榜快照 0.78165；榜单流动，单次快照不构成永久结论"
+      "platform_conclusion": "2026-08-03 公榜快照 0.68012；榜单流动，单次快照不构成永久结论"
     },
     {
       "factor_id": "85a184ef758ef2c3",
       "display_name": "R3 M3 depth order count structure 85A184EF",
-      "reported_score": 0.80726,
+      "reported_score": 0.82974,
       "precision": "exact",
       "tier": "leader",
       "ordinal_rank": 1,
       "observed_at": "2026-08-03",
       "score_scope": "dynamic_leaderboard_snapshot",
-      "platform_conclusion": "2026-08-03 公榜快照 0.80726；榜单流动，单次快照不构成永久结论",
+      "platform_conclusion": "2026-08-03 公榜快照 0.82974；榜单流动，单次快照不构成永久结论",
       "prior_reported_scores": [
         0.857,
         0.8,
-        0.74995
+        0.74995,
+        0.80726
       ]
     },
     {
       "factor_id": "c3d5e4996557a64d",
       "display_name": "R1 small trade quote gap bid depth C3D5",
-      "reported_score": 0.68315,
+      "reported_score": 0.4191,
       "precision": "exact",
-      "tier": "leader",
-      "ordinal_rank": 5,
+      "tier": "laggard",
+      "ordinal_rank": 11,
       "prior_reported_scores": [
         0.7,
-        0.51687
+        0.51687,
+        0.68315
       ],
       "score_scope": "dynamic_leaderboard_snapshot",
       "observed_at": "2026-08-03",
-      "platform_conclusion": "2026-08-03 公榜快照 0.68315；榜单流动，单次快照不构成永久结论"
+      "platform_conclusion": "2026-08-03 公榜快照 0.41910；榜单流动，单次快照不构成永久结论"
     },
     {
       "factor_id": "bd6827cd111e03c4",
       "display_name": "R3 M2 ask depth price range BD6827CD",
-      "reported_score": 0.59937,
+      "reported_score": 0.61581,
       "precision": "exact",
-      "tier": "middle",
-      "ordinal_rank": 8,
+      "tier": "leader",
+      "ordinal_rank": 5,
       "observed_at": "2026-08-03",
       "score_scope": "dynamic_leaderboard_snapshot",
       "prior_reported_scores": [
         0.65,
-        0.65019
+        0.65019,
+        0.59937
       ],
-      "platform_conclusion": "2026-08-03 公榜快照 0.59937；榜单流动，单次快照不构成永久结论"
+      "platform_conclusion": "2026-08-03 公榜快照 0.61581；榜单流动，单次快照不构成永久结论"
     },
     {
       "factor_id": "876b4688f65a4429",
       "display_name": "R3 M1 quote order depth interaction 876B4688",
-      "reported_score": 0.64334,
+      "reported_score": 0.71214,
       "precision": "exact",
       "tier": "leader",
-      "ordinal_rank": 6,
+      "ordinal_rank": 2,
       "observed_at": "2026-08-03",
       "score_scope": "dynamic_leaderboard_snapshot",
       "prior_reported_scores": [
         0.65,
         0.68,
-        0.48346
+        0.48346,
+        0.64334
       ],
-      "platform_conclusion": "2026-08-03 公榜快照 0.64334；榜单流动，单次快照不构成永久结论"
+      "platform_conclusion": "2026-08-03 公榜快照 0.71214；榜单流动，单次快照不构成永久结论"
     },
     {
       "factor_id": "f3974be80e474c45",
       "display_name": "R1 low ask order activity mid price F397",
-      "reported_score": 0.54781,
+      "reported_score": 0.52785,
       "precision": "exact",
       "tier": "middle",
-      "ordinal_rank": 10,
+      "ordinal_rank": 8,
       "prior_reported_scores": [
         0.6,
-        0.53099
+        0.53099,
+        0.54781
       ],
       "score_scope": "dynamic_leaderboard_snapshot",
       "observed_at": "2026-08-03",
-      "platform_conclusion": "2026-08-03 公榜快照 0.54781；榜单流动，单次快照不构成永久结论"
+      "platform_conclusion": "2026-08-03 公榜快照 0.52785；榜单流动，单次快照不构成永久结论"
     },
     {
       "factor_id": "cb1e859b7b3cdb27",
       "display_name": "R4 M2 ask order layering unit size CB1E859B",
-      "reported_score": 0.53239,
+      "reported_score": 0.56978,
       "precision": "exact",
       "tier": "middle",
-      "ordinal_rank": 11,
+      "ordinal_rank": 7,
       "observed_at": "2026-08-03",
       "score_scope": "dynamic_leaderboard_snapshot",
-      "platform_conclusion": "2026-08-03 公榜快照 0.53239；榜单流动，单次快照不构成永久结论",
+      "platform_conclusion": "2026-08-03 公榜快照 0.56978；榜单流动，单次快照不构成永久结论",
       "platform_decision": "reobserve",
       "prior_reported_scores": [
         0.54,
-        0.35987
+        0.35987,
+        0.53239
       ]
     },
     {
       "factor_id": "0bdead706272a99d",
       "display_name": "R4 M1 sell pressure quote interaction 0BDEAD70",
-      "reported_score": 0.30999,
+      "reported_score": 0.4298,
       "precision": "exact",
       "tier": "laggard",
-      "ordinal_rank": 14,
+      "ordinal_rank": 10,
       "observed_at": "2026-08-03",
       "score_scope": "dynamic_leaderboard_snapshot",
-      "platform_conclusion": "2026-08-03 公榜快照 0.30999；榜单流动，单次快照不构成永久结论",
+      "platform_conclusion": "2026-08-03 公榜快照 0.42980；榜单流动，单次快照不构成永久结论",
       "platform_decision": "reobserve",
       "prior_reported_scores": [
-        0.34768
+        0.34768,
+        0.30999
       ]
     },
     {
@@ -140,7 +148,7 @@
       "reported_score": 0.28331,
       "precision": "exact",
       "tier": "laggard",
-      "ordinal_rank": 16,
+      "ordinal_rank": 21,
       "observed_at": "2026-08-03",
       "score_scope": "dynamic_leaderboard_snapshot",
       "platform_conclusion": "此前按用户口述标记 retire；2026-08-03 公榜快照已记录，先解除硬淘汰",
@@ -150,32 +158,34 @@
     {
       "factor_id": "3a657cc77740192d",
       "display_name": "R4 M4 ask order layering ratio 3A657CC7",
-      "reported_score": 0.73261,
+      "reported_score": 0.29438,
       "precision": "exact",
-      "tier": "leader",
-      "ordinal_rank": 4,
+      "tier": "laggard",
+      "ordinal_rank": 19,
       "observed_at": "2026-08-03",
       "score_scope": "dynamic_leaderboard_snapshot",
-      "platform_conclusion": "2026-08-03 公榜快照 0.73261；榜单流动，单次快照不构成永久结论",
+      "platform_conclusion": "2026-08-03 公榜快照 0.29438；榜单流动，单次快照不构成永久结论",
       "platform_decision": "reobserve",
       "prior_reported_scores": [
-        0.67304
+        0.67304,
+        0.73261
       ]
     },
     {
       "factor_id": "c610a0ff13cf0380",
       "display_name": "R2 order granularity depth structure C610",
-      "reported_score": 0.64131,
+      "reported_score": 0.68369,
       "precision": "exact",
       "tier": "leader",
-      "ordinal_rank": 7,
+      "ordinal_rank": 3,
       "prior_reported_scores": [
         0.6,
-        0.63014
+        0.63014,
+        0.64131
       ],
       "score_scope": "dynamic_leaderboard_snapshot",
       "observed_at": "2026-08-03",
-      "platform_conclusion": "2026-08-03 公榜快照 0.64131；榜单流动，单次快照不构成永久结论"
+      "platform_conclusion": "2026-08-03 公榜快照 0.68369；榜单流动，单次快照不构成永久结论"
     },
     {
       "factor_id": "a067fcebd57345dc",
@@ -183,7 +193,7 @@
       "reported_score": 0.21017,
       "precision": "exact",
       "tier": "laggard",
-      "ordinal_rank": 19,
+      "ordinal_rank": 25,
       "observed_at": "2026-08-03",
       "score_scope": "dynamic_leaderboard_snapshot",
       "prior_reported_scores": [
@@ -198,7 +208,7 @@
       "reported_score": 0.36806,
       "precision": "exact",
       "tier": "laggard",
-      "ordinal_rank": 13,
+      "ordinal_rank": 15,
       "observed_at": "2026-08-03",
       "score_scope": "dynamic_leaderboard_snapshot",
       "platform_conclusion": "多次公榜观测均低于 0.45，维持 confirmed_retire；榜单若大幅回升可再解除",
@@ -213,7 +223,7 @@
       "reported_score": 0.26351,
       "precision": "exact",
       "tier": "laggard",
-      "ordinal_rank": 17,
+      "ordinal_rank": 22,
       "prior_reported_scores": [],
       "score_scope": "dynamic_leaderboard_snapshot",
       "observed_at": "2026-08-03",
@@ -223,43 +233,46 @@
       "factor_id": "1ffe11756e87b138",
       "display_name": "R5 M2 ask liquidity quote gap bid3 reversal 1FFE1175",
       "prior_reported_scores": [
-        0.36027
+        0.36027,
+        0.40795
       ],
       "precision": "exact",
       "tier": "laggard",
-      "reported_score": 0.40795,
+      "reported_score": 0.396,
       "score_scope": "dynamic_leaderboard_snapshot",
       "observed_at": "2026-08-03",
-      "ordinal_rank": 12,
-      "platform_conclusion": "2026-08-03 公榜快照 0.40795；榜单流动，单次快照不构成永久结论"
+      "ordinal_rank": 14,
+      "platform_conclusion": "2026-08-03 公榜快照 0.39600；榜单流动，单次快照不构成永久结论"
     },
     {
       "factor_id": "5857ca18f26c3a5b",
       "display_name": "R5 M2 ask liquidity quote gap bid1 reversal 5857CA18",
       "prior_reported_scores": [
-        0.70378
+        0.70378,
+        0.768
       ],
       "precision": "exact",
       "tier": "leader",
-      "reported_score": 0.768,
+      "reported_score": 0.60007,
       "score_scope": "dynamic_leaderboard_snapshot",
       "observed_at": "2026-08-03",
-      "ordinal_rank": 3,
-      "platform_conclusion": "2026-08-03 公榜快照 0.76800；榜单流动，单次快照不构成永久结论"
+      "ordinal_rank": 6,
+      "platform_conclusion": "2026-08-03 公榜快照 0.60007；榜单流动，单次快照不构成永久结论"
     },
     {
       "factor_id": "d34abb176ff7f5a3",
       "display_name": "R5 M1 double depth count close reversal D34ABB17",
       "prior_reported_scores": [
-        0.3297
+        0.3297,
+        0.57608
       ],
       "precision": "exact",
-      "tier": "middle",
-      "reported_score": 0.57608,
+      "tier": "laggard",
+      "reported_score": 0.43943,
       "score_scope": "dynamic_leaderboard_snapshot",
       "observed_at": "2026-08-03",
       "ordinal_rank": 9,
-      "platform_conclusion": "2026-08-03 公榜快照 0.57608；榜单流动，单次快照不构成永久结论"
+      "platform_conclusion": "2026-08-03 公榜快照 0.43943；榜单流动，单次快照不构成永久结论"
     },
     {
       "factor_id": "a69b942c66a67150",
@@ -270,22 +283,123 @@
       "reported_score": 0.23636,
       "score_scope": "dynamic_leaderboard_snapshot",
       "observed_at": "2026-08-03",
-      "ordinal_rank": 18,
+      "ordinal_rank": 24,
       "platform_conclusion": "2026-08-03 公榜快照 0.23636；榜单流动，单次快照不构成永久结论"
     },
     {
       "factor_id": "2c3a24064601eeb2",
       "display_name": "R5 M1 depth close reversal 2C3A2406",
       "prior_reported_scores": [
-        0.35295
+        0.35295,
+        0.29293
       ],
       "precision": "exact",
       "tier": "laggard",
-      "reported_score": 0.29293,
+      "reported_score": 0.28588,
       "score_scope": "dynamic_leaderboard_snapshot",
       "observed_at": "2026-08-03",
-      "ordinal_rank": 15,
-      "platform_conclusion": "2026-08-03 公榜快照 0.29293；榜单流动，单次快照不构成永久结论"
+      "ordinal_rank": 20,
+      "platform_conclusion": "2026-08-03 公榜快照 0.28588；榜单流动，单次快照不构成永久结论"
+    },
+    {
+      "factor_id": "2c44cda322ffda25",
+      "display_name": "R6 M1 ask order slope structure 2C44CDA3",
+      "prior_reported_scores": [],
+      "precision": "exact",
+      "tier": "laggard",
+      "reported_score": 0.32886,
+      "score_scope": "dynamic_leaderboard_snapshot",
+      "observed_at": "2026-08-03",
+      "platform_conclusion": "2026-08-03 公榜快照 0.32886；榜单流动，单次快照不构成永久结论",
+      "ordinal_rank": 17
+    },
+    {
+      "factor_id": "e3b3b11f320f1fcb",
+      "display_name": "R6 M1 ask order slope structure E3B3B11F",
+      "prior_reported_scores": [],
+      "precision": "exact",
+      "tier": "laggard",
+      "reported_score": 0.30234,
+      "score_scope": "dynamic_leaderboard_snapshot",
+      "observed_at": "2026-08-03",
+      "platform_conclusion": "2026-08-03 公榜快照 0.30234；榜单流动，单次快照不构成永久结论",
+      "ordinal_rank": 18
+    },
+    {
+      "factor_id": "6567928adbc41ba5",
+      "display_name": "R6 M2 cross depth order size 6567928A",
+      "prior_reported_scores": [],
+      "precision": "exact",
+      "tier": "laggard",
+      "reported_score": 0.4064,
+      "score_scope": "dynamic_leaderboard_snapshot",
+      "observed_at": "2026-08-03",
+      "platform_conclusion": "2026-08-03 公榜快照 0.40640；榜单流动，单次快照不构成永久结论",
+      "ordinal_rank": 12
+    },
+    {
+      "factor_id": "9795480c536082f1",
+      "display_name": "R6 M2 cross depth order size 9795480C",
+      "prior_reported_scores": [],
+      "precision": "exact",
+      "tier": "laggard",
+      "reported_score": 0.4061,
+      "score_scope": "dynamic_leaderboard_snapshot",
+      "observed_at": "2026-08-03",
+      "platform_conclusion": "2026-08-03 公榜快照 0.40610；榜单流动，单次快照不构成永久结论",
+      "ordinal_rank": 13
+    },
+    {
+      "factor_id": "3ddf33b094a111e9",
+      "display_name": "R6 M3 quote spread change 3DDF33B0",
+      "prior_reported_scores": [],
+      "precision": "exact",
+      "tier": "laggard",
+      "reported_score": 0.24772,
+      "score_scope": "dynamic_leaderboard_snapshot",
+      "observed_at": "2026-08-03",
+      "platform_conclusion": "2026-08-03 公榜快照 0.24772；榜单流动，单次快照不构成永久结论",
+      "ordinal_rank": 23
+    },
+    {
+      "factor_id": "4219d87013f3c0bf",
+      "display_name": "R6 M3 quote spread change 4219D870",
+      "prior_reported_scores": [],
+      "precision": "exact",
+      "tier": "laggard",
+      "reported_score": 0.34343,
+      "score_scope": "dynamic_leaderboard_snapshot",
+      "observed_at": "2026-08-03",
+      "platform_conclusion": "2026-08-03 公榜快照 0.34343；榜单流动，单次快照不构成永久结论",
+      "ordinal_rank": 16
+    },
+    {
+      "factor_id": "89004d6bac405237",
+      "display_name": "R6 M3 quote spread change 89004D6B",
+      "prior_reported_scores": [],
+      "precision": "exact",
+      "tier": "laggard",
+      "reported_score": 0.17993,
+      "score_scope": "dynamic_leaderboard_snapshot",
+      "observed_at": "2026-08-03",
+      "platform_conclusion": "2026-08-03 公榜快照 0.17993；榜单流动，单次快照不构成永久结论",
+      "ordinal_rank": 26
+    },
+    {
+      "factor_id": "4c96cefc90cfe844",
+      "display_name": "R6 M4 eod absorption 4C96CEFC",
+      "prior_reported_scores": [],
+      "precision": "unknown",
+      "tier": "laggard",
+      "ordinal_rank": null
+    },
+    {
+      "factor_id": "b04c15e66ca70fd8",
+      "display_name": "R6 M4 eod absorption B04C15E6",
+      "prior_reported_scores": [],
+      "precision": "unknown",
+      "tier": "laggard",
+      "ordinal_rank": null
     }
   ],
   "updated_at": "2026-08-03"

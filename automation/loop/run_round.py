@@ -781,6 +781,8 @@ class RoundRunner:
         ranked = [
             (self._genomes[str(item["factor_id"])], -float(item["ordinal_rank"]))
             for item in factors
+            if item.get("reported_score") is not None
+            and item.get("ordinal_rank") is not None
         ]
         self.ga.credit.update_genomes(ranked, round_no=self.last_completed_round)
         self._applied_feedback_digest = digest
