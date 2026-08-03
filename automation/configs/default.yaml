@@ -1,0 +1,106 @@
+# automation/default 配置 —— 严格模式；已启用组件失败立即中止
+
+# ---- LLM 层 ----
+llm:
+  provider: deepseek
+  base_url: "https://api.deepseek.com"
+  model: "deepseek-v4-flash"
+  # 显式 high，避免复杂 Agent 请求被服务端自动提升为 max 后只推理、不落最终 JSON。
+  reasoning: "high"
+  thinking: true
+  temperature: 0.8
+  # 不向 DeepSeek 发送 max_tokens，让 Flash 使用服务端自身允许的输出上限。
+  # JSON mode 偶发 reasoning 有正文而 final content 为空；保持同一模型、thinking、
+  # JSON schema 和请求约束原样重试，不切模型、不关闭思考、不生成程序化后备结果。
+  max_tokens: null
+  timeout_s: 180
+  retries: 10
+  key_file: "/Users/azul1024/Documents/AI_workshop/DEEPSEEK_API_KEY.txt"
+  # planner 与 summarizer 各自独立的记忆文件
+  memory:
+    # v1 文件保留为历史证据，但包含错误窗口/频率/空 RefSet 结论，不再输入 Agent。
+    planner: "automation/memory/planner_v2.md"
+    summarizer: "automation/memory/summarizer_v2.md"
+
+# ---- 数据层（2024 1 分钟，日频特征面板模式）----
+panel:
+  # 2024-01-01 起改用 1 分钟表；原始 1m 数据按季度分块缓存，
+  # 再一次性聚合成日频特征面板（automation/panel/daily_features.py），
+  # GA 只接触小面板，避免全年 5800 万行带来的内存压力。
+  source_table: "bigalpha_2026_e2e_bar1m"
+  start: "2024-01-01"
+  end: "2024-12-31"
+  holdout_start: "2025-01-01"     # 2025 隐藏测试，自动流程永不触碰
+  cache_dir: "data_cache/dai_download"
+  bar_freq: "1m"
+  feature_panel: "data_cache/dai_download/daily_features_2024_1m.parquet"
+
+# ---- GA 搜索层 ----
+search:
+  # 每轮四个独立机制：有历史后固定 2 exploit + 2 explore；首轮无父代时四个均为 bootstrap explore。
+  mechanisms_per_round: 4
+  # population_size 是每个机制的种群规模，不是四个机制共享的总数。
+  population_size: 16
+  generations: 5
+  elite_frac: 0.2
+  mutation_rate: 0.35
+  crossover_rate: 0.5
+  tournament_size: 3
+  # 后验组件信用驱动随机生成、交叉与变异；uniform 混合下限防止过早锁死。
+  exploration_floor: 0.15
+  credit_learning_rate: 0.25
+  credit_temperature: 0.35
+  # 用户报告的平台实测反馈是独立后验信号，不与本地 IC/t-stat 强行换算。
+  platform_feedback_file: "automation/runs/trial_20260802_r3/platform_feedback.json"
+  platform_score_target: 0.85
+  platform_score_stretch: 0.90
+  leader_sequence_file: "automation/memory/leader_factor_sequence.json"
+  combination_research_file: "automation/memory/factor_combination_research.json"
+  # MAP-Elites 网格维度（return-space 签名）
+  map_elites_bins: 6
+  archive_limit: 200
+  candidates_per_round: 10
+  seed: 20260801
+
+# ---- 评估层（本地 B-proxy，镜像官方 Elastic Net 流程）----
+evaluate:
+  # repo eval/scorer 的 cascade 参数
+  quick_window: 120
+  en_alpha: 0.001
+  en_l1_ratio: 0.5
+  corr_gate: 0.6
+  spanning_r2_max: 0.95
+  spanning_t_min: 2.0
+  pfs_min: 0.60
+  # 质量门控（2024 1m 模式）：
+  # - confirm_split：把年度窗口切成搜索/确认两段，因子在确认段的残差化前
+  #   RankIC t 值必须达到 confirm_t_min，防止只在搜索段成立的过拟合信号；
+  # - same_round_corr_max：同一轮不同机制选出的候选两两日频相关性上限，
+  #   防止同轮被同一族同质因子填满（如 R4 的 ask order layering 同族复制）。
+  confirm_split: "2024-07-01"
+  confirm_t_min: 1.5
+  same_round_corr_max: 0.6
+  refset_dir: "automation/evaluate/refset"
+  factorlib: ""          # 官方 36 个日频因子 parquet 路径（export 后填入）
+  # local_classic: 全本地 bar 衍生经典风格控制；不冒充官方 BARRA。
+  # official_file: 只接受已导出的官方十风格+行业文件，缺失即中止。
+  exposure_mode: "local_classic"
+  exposures_file: "data_cache/dai_download/exposure_2023.parquet"
+  exposures_table: "bigalpha_2026_exposure"
+
+# ---- 循环驱动 ----
+loop:
+  rounds_per_session: 5
+  ledger: "automation/ledger.jsonl"
+  run_dir: "automation/runs"
+  watch_interval_s: 60
+  max_llm_agents: 2
+  # AIStudio 官方评估：外部循环，只对幸存者低频提交
+  platform:
+    artifact_mode: "agent_rewrite_queue"
+    remote_dir: "/home/aiuser/work/automation_submissions/"
+    max_platform_eval_per_round: 3
+    max_artifacts_per_round: 10
+    auto_upload: false
+    auto_evaluate: false
+    evaluate_timeout_ms: 120000
