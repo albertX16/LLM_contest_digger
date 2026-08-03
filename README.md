@@ -26,6 +26,22 @@
 
 ---
 
+## 0. 自动化投研系统（2026-08-03 快照）
+
+本地已运行的自动化因子挖掘闭环见 [`automation/`](automation/)（代码）、
+[工作流说明](docs/automation_workflow.md)、[更新日志](docs/updates_log.md) 与
+[当前成果](results/RESULTS_2026-08-03.md)。
+
+- 数据：2024 全年 1 分钟 bar → 69 维日频特征面板（内存安全：周块缓存 +
+  逐块流式聚合，GA 峰值内存约 200MB）；
+- 流程：DeepSeek 双 Agent（Planner/Summarizer）→ 每轮 4 个独立机制 GA →
+  经典风格残差化 + RefSet/spanning/Elastic Net 三级联 → 账本 + 断点续跑 →
+  Agent 改写提交 notebook → Edge 9222 上传 AIStudio；
+- 策略：确认窗口门控、同轮多样性门控、平台反馈后验化、探索失败即冻结，
+  前沿研究（LOB 形状/microprice/日内动量/订单规模分解等）写入 Planner 提示词。
+
+---
+
 ## 2. 项目任务
 
 本项目面向量化比赛的 AI 智能因子赛道，目标是建立一套可持续迭代的自动因子研究系统：

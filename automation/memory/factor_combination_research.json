@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "role": "普通轮次只读精简守则；专项组合轮次才读全部实证与候选。",
+  "ordinary_round_guardrails": [
+    "短周期优先挖高质量单因子，不因为低相关就把弱因子塞入强因子。",
+    "普通挖掘轮次不生成跨因子动态轮动公式；只保留不同机制、不同市场状态可能互补的领先组件。",
+    "原始乘积常破坏截面排序，同向强腿做差也可能相互抵消；组合候选优先每日截面rank后线性组合。",
+    "如果多个组件都能单独过门槛且有独立信息，分别提交通常比预先合成更有利于官方全局Elastic Net识别边际贡献。",
+    "LLM只负责解释失效机制、提出候选腿与状态假设；相关性、状态划分、组合权重、门控与淘汰必须由固定程序计算。"
+  ],
+  "validated_findings": [
+    {
+      "name": "三高频信号等权组合",
+      "components": ["shape_order_size", "queue_cancellation_fade", "obi1_late_fade"],
+      "method": "每日截面rank后等权",
+      "evidence": "2022/2023全年最低ICIR由shape单因子的0.086提高到0.210；2023多空累计20.31%、Sharpe 3.33，但2022 Top组超额被稀释且回撤略恶化。",
+      "status": "证明真实互补，不证明一定提高平台得分"
+    },
+    {
+      "name": "正交状态专家候选B",
+      "components": {
+        "normal": "-idiosyncratic_volatility_5d",
+        "panic": "-average_tail_30m_return_5d",
+        "rebound": "participation_defense"
+      },
+      "method": "线性三状态门控",
+      "selection_window": "2019-2021",
+      "validation_window": "2022-2023",
+      "metrics": {
+        "validation_icir": 0.63803,
+        "icir_2022": 0.61187,
+        "icir_2023": 0.66359,
+        "panic_icir": 0.44066,
+        "long_short_sharpe": 4.988,
+        "top_excess_sharpe": 4.360,
+        "top_excess_max_drawdown": -0.0287
+      },
+      "orthogonality": {
+        "normal_vs_panic_value_corr": -0.009,
+        "panic_vs_rebound_value_corr": -0.041,
+        "normal_vs_rebound_value_corr": 0.428
+      },
+      "risk": "常态腿可能被官方RESVOL/风格处理吸收，未证明平台得分优势。"
+    },
+    {
+      "name": "70% LightGBM + 30% close_reverse",
+      "method": "静态rank线性组合",
+      "evidence": "三个两月窗口稳健评分1.322，高于LightGBM单独1.278；证据弱于完整年度验证。",
+      "status": "历史对照；当前自动流程按用户要求暂不使用LightGBM"
+    }
+  ],
+  "specialized_combination_task": {
+    "recommended_mode": "独立于普通挖掘round的组合复盘任务",
+    "trigger": "每累积4个完整单因子round，且活跃领先池至少有6个因子、覆盖至少3种机制时执行一次。",
+    "inputs": [
+      "leader_factor_sequence",
+      "平台动态得分历史",
+      "候选日频因子矩阵",
+      "每日截面相关、联合spanning与Elastic Net留权证据",
+      "常态/下跌高波动/流动性压力/快速反弹分状态指标"
+    ],
+    "candidate_families": [
+      "每日截面rank后等权",
+      "强腿主导的70/30或80/20静态组合",
+      "弱腿对强腿残差化后组合",
+      "有明确状态专长且样本外成立时的滞后状态门控"
+    ],
+    "hard_rejections": [
+      "只因低相关就加入无独立预测力的弱腿",
+      "原始乘积组合",
+      "只在单一短窗口获胜",
+      "样本内极端权重",
+      "动态门控没有前缀不变性/无未来数据验证"
+    ]
+  },
+  "sources": [
+    "research/traditional_factors/HF_NEW_FACTORS_COMBINATION_ROTATION.md",
+    "research/traditional_factors/COMPOSITE_ROTATION_RESULTS_2026-07-31.md",
+    "research/traditional_factors/results/regime_specialist_orthogonal_2026_07_31/validation_2022_2023.csv",
+    "research/traditional_factors/results/actual_component_combinations_2026_07_31/actual_component_3window_grid.csv"
+  ]
+}
